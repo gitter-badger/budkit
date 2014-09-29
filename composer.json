@@ -3,12 +3,12 @@
     "description": "The Budkit Social App",
     "keywords": ["platform", "budkit"],
     "license": "GPLv3",
+    "minimum-stability": "dev",
+    "repositories": [
+        { "type": "git", "url":  "https://github.com/budkit/budkit-framework.git"}
+    ],
     "require": {
         "php": ">=5.3.2",
         "budkit/framework": "*"
-    },
-    "minimum-stability": "dev",
-    "repositories": [
-        { "type": "vcs", "url":  "/opt/local/apache2/htdocs/budkit-framework"}
-    ]
+    }
 }
