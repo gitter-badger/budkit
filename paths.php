@@ -6,12 +6,10 @@
  * Time: 08:54
  */
 
-<?php
-
 return array(
-
     'app'       => __DIR__.'/application',
     'public'    => __DIR__.'/public',
     'base'      => __DIR__,
     'storage'   => __DIR__.'/application/storage',
+    'vendor'    => __DIR__.'/vendor'
 );

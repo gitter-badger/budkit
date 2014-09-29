@@ -6,9 +6,29 @@
  * Time: 18:57
  */
 
-require  $paths['base'].'/autoload.php';
+ini_set('display_errors', 1); //temporary
 
-$app = $paths['base'].'/bootstrap.php';
+$app 	= require __DIR__ . '/../bootstrap.php';
+
+//Adding a Route;
+Route::add("/",  "index");
 
 
-//$app->run();
+//Grouping routes under a prefix; 
+Route::attach("/blog", "blog", function($router){
+	$router->setTokens(array(
+	   'id'		=> '\d+',
+	   'format'	=>'(\.json|\.atom|\.html)'
+	));
+   //subroutes
+   $router->add( '{format}','browse');
+   $router->add('/{id}{format}', "read");
+   $router->add('/{id}/edit{format}', "edit");
+   
+});
+
+//Resource routes
+Route::attachResource("/protocol","protocol");
+
+
+$app->execute();
