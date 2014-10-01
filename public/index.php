@@ -11,19 +11,26 @@ ini_set('display_errors', 1); //temporary
 $app 	= require __DIR__ . '/../bootstrap.php';
 
 //Adding a Route;
-Route::add("/",  "index");
+$app->route->add("/",  "Home")
+	->setValues(array(
+		"action"=>function($response, $params = null)use($app){	
+			//var_dump($app);
+			echo "call me maybe";
+		})
+	);
 
+$app->route->add("/callme", "callme", "Home");
 
 //Grouping routes under a prefix; 
-Route::attach("/blog", "blog", function($router){
-	$router->setTokens(array(
+Route::attach("/blog", "blog", function($route){
+	$route->setTokens(array(
 	   'id'		=> '\d+',
 	   'format'	=>'(\.json|\.atom|\.html)'
 	));
    //subroutes
-   $router->add( '{format}','browse');
-   $router->add('/{id}{format}', "read");
-   $router->add('/{id}/edit{format}', "edit");
+   $route->add( '{format}','browse');
+   $route->add('/{id}{format}', "read");
+   $route->add('/{id}/edit{format}', "edit");
    
 });
 

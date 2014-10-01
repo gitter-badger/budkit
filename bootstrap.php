@@ -9,6 +9,17 @@
 $paths 			= require __DIR__ . '/paths.php';
 $autoload 		= require $paths['base'] . '/autoload.php';
 
+//Register a custom class and utitlity loader;
+Budkit\Utility\Loader::register();
+
+//Register Application Classes
+Budkit\Utility\Loader::addDirectories(array(
+	$paths['app'] .'/controllers',
+	$paths['app'] .'/models'
+));
+
+
+
 //Get an instance of the app container
 $app 			= new Budkit\Application\Platform;
 
