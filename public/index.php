@@ -6,13 +6,12 @@
  * Time: 18:57
  */
 
-ini_set('display_errors', 1); //temporary
+//ini_set('display_errors', 1); //temporary
 
 $app 	= require __DIR__ . '/../bootstrap.php';
 
 //Adding a Route;
 $app->route->add("/",  "Home");
-
 $app->route->add("/callme", "callme")
 	->setValues(array(
 		"action"=>function($response, $params = null)use($app){	

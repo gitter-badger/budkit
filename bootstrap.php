@@ -9,6 +9,13 @@
 $paths 			= require __DIR__ . '/paths.php';
 $autoload 		= require $paths['base'] . '/autoload.php';
 
+
+$whoops			= new Whoops\Run;
+
+//Register the whoops 
+$whoops->pushHandler(new Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 //Register a custom class and utitlity loader;
 Budkit\Utility\Loader::register();
 
