@@ -5,7 +5,11 @@ class Home extends Controller{
 	
 	
 	public function index(){
-		echo "Welcome Home";
+		
+		//var_dump($this->view);
+		$this->response->setContentType("json");
+		
+		$this->display('{"user":"livingstonef","id":"234434134"}');
 	}
 	
 

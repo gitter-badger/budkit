@@ -11,15 +11,15 @@ ini_set('display_errors', 1); //temporary
 $app 	= require __DIR__ . '/../bootstrap.php';
 
 //Adding a Route;
-$app->route->add("/",  "Home")
+$app->route->add("/",  "Home");
+
+$app->route->add("/callme", "callme")
 	->setValues(array(
 		"action"=>function($response, $params = null)use($app){	
 			//var_dump($app);
 			echo "call me maybe";
 		})
 	);
-
-$app->route->add("/callme", "callme", "Home");
 
 //Grouping routes under a prefix; 
 Route::attach("/blog", "blog", function($route){
