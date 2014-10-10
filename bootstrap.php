@@ -22,7 +22,8 @@ Budkit\Utility\Loader::register();
 //Register Application Classes
 Budkit\Utility\Loader::addDirectories(array(
 	$paths['app'] .'/controllers',
-	$paths['app'] .'/models'
+	$paths['app'] .'/models',
+	$paths['app'] 
 ));
 
 
