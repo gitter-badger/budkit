@@ -4,6 +4,8 @@ class Protocol extends Controller{
 	
 	public function browse($format = 'html'){
 		echo "Browsing in {$format} format";
+		
+		$this->display('Views\Index');
 	}
 
 	
