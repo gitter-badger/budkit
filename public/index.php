@@ -15,8 +15,13 @@ $app->route->add("/",  "Home");
 $app->route->add("/callme", "callme")
 	->setValues(array(
 		"action"=>function($response, $params = null)use($app){	
-			//var_dump($app);
-			echo "call me maybe";
+			
+			//var_dump($params);
+			
+			$response->setContentType("json");
+			
+			return $response->addContent("{j:s,o:n}");
+			
 		})
 	);
 
