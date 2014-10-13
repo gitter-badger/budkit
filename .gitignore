@@ -8,3 +8,16 @@ vendor/composer/ClassLoader.php
 vendor/composer/installed.json
 .buildpath
 .project
+public/assets/activity.html
+public/assets/calender.html
+public/assets/categories.html
+public/assets/components.html
+public/assets/discussions.html
+public/assets/docs.html
+public/assets/editor.html
+public/assets/getting-started.html
+public/assets/index.html
+public/assets/project.html
+public/assets/protocols.html
+public/assets/tasks.html
+public/assets/template.html
