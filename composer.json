@@ -1,15 +1,20 @@
 {
     "name": "budkit/budkit",
     "description": "The Budkit Social App",
-    "keywords": ["platform", "budkit"],
+    "keywords": [
+        "platform",
+        "budkit"
+    ],
     "license": "GPLv3",
     "minimum-stability": "dev",
     "repositories": [
-        { "type": "git", "url":  "https://github.com/budkit/budkit-framework.git"}
+        {"type": "git", "url": "https://github.com/budkit/budkit-framework.git"},
+        {"type": "git", "url": "https://github.com/livingstone/budkit-calendar.git"}
     ],
     "require": {
         "php": ">=5.3.2",
-		"budkit/framework": "*",
-		"filp/whoops":"1.*"
+        "budkit/framework": "*",
+        "filp/whoops": "1.*",
+        "livingstonef/calendar": "*"
     }
 }
