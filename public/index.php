@@ -1,45 +1,47 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: livingstonefultang
- * Date: 14/06/2014
- * Time: 18:57
- */
 
-//ini_set('display_errors', 1); //temporary
+/*
+|--------------------------------------------------------------------------
+| Define Application Paths and include the Framework
+|--------------------------------------------------------------------------
+|
+| The $path var must include the following keys, needed by the framework
+| boostrap:
+|
+| base:      Which points to the install root
+| public:    Which points to the server root or wherever you put this index.php file
+| app:       The directory which holds all your application classes and config vars
+| storage:   A directory used as a file store.
+| vendor:    Pointing to the vendor directory
+| framework: The framework directory
+|
+*/
+$paths   = require __DIR__ . '/../paths.php';
+$app     = require $paths['framework'] . '/Budkit/Application/bootstrap.php';
 
-$app 	= require __DIR__ . '/../bootstrap.php';
-
-//Adding a Route;
-$app->route->add("/",  "Home");
-$app->route->add("/callme", "callme")
-	->setValues(array(
-		"action"=>function($response, $params = null)use($app){	
-			
-			//var_dump($params);
-			
-			$response->setContentType("json");
-			
-			return $response->addContent("{j:s,o:n}");
-			
-		})
-	);
-
-//Grouping routes under a prefix; 
-Route::attach("/blog", "blog", function($route){
-	$route->setTokens(array(
-	   'id'		=> '\d+',
-	   'format'	=>'(\.json|\.atom|\.html)'
-	));
-   //subroutes
-   $route->add( '{format}','browse');
-   $route->add('/{id}{format}', "read");
-   $route->add('/{id}/edit{format}', "edit");
-   
-});
-
-//Resource routes
-Route::attachResource("/protocol","protocol");
+/*
+|--------------------------------------------------------------------------
+| Use the composer loader class to define system app classes
+|--------------------------------------------------------------------------
+|
+| The composer auto-load class can be used to add lookup directories for
+| custom application classes. This class can be assessed from the app
+| controller using $app->loader.
+| Alternatively you may use Budkit/Utitlity/Loader
+|
+*/
+$app->loader->add('', $paths['app'].'/controllers');
+$app->loader->add('', $paths['app'].'/models');
+$app->loader->add('', $paths['app']);
 
 
+/*
+|--------------------------------------------------------------------------
+| Execute the application
+|--------------------------------------------------------------------------
+|
+| Starts the application, Parses the request, Processes the Route to the
+| Requested Action and Creates a Response which by default is auto-returned.
+|
+*/
 $app->execute();

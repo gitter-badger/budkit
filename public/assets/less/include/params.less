@@ -1,0 +1,91 @@
+
+@dumpsite:          #2D2D29;
+@sugar-factory:     #215A6D;
+@nobody-loves-sugar:#3CA2A2;
+@wonderland:        #92C7A3;
+@brown-sugar:       #DFECE6;
+@gray-dark:          darken(@gray, 20%);
+@btn-default-bg:     lighten( @clouds, 3%);
+
+@btn-hover-bg:               mix(@btn-default-bg, white, 80%);
+@btn-active-bg:              mix(@btn-default-bg, black, 85%);
+
+
+//** Global textual link color.
+@link-color:            @green-sea;
+@link-hover-color:      @turquoise ;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+@body-bg:                   white;
+@sidebar-bg:                @midnight-blue;
+@text-color:                #6C7C97;
+@container-width:           900px;
+@sidebar-width:             200px;
+
+@hero-padding:              100px;
+@hero-color:                white;
+@hero-bg:                   @gray-light;
+@hero-bg-img:              ' ../img/homelab-blur.jpg';
+@hero-bg-pos:               50% 50%;
+@hero-bg-size:              cover;
+
+@hero-heading-color:        inherit;
+@hero-text-align:           center;
+
+// Border-radius
+@border-radius-base:        0px;
+@border-radius-large:       0px;
+@border-radius-small:       0px;
+
+@input-border-radius:       @border-radius-large;
+
+//== Typography
+//
+//## Font, line-height for body text, headings, and more.
+@font-family-base:          "Noto Sans","Open sans", Helvetica, Arial, sans-serif;
+@font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-size-base:            14px;
+@font-size-small:           12px;
+
+@font-size-h1:              ceil(@font-size-base * 1.889); // ~52px
+@font-size-h2:              ceil(@font-size-base * (6/4)); // ~40px
+@font-size-h3:              ceil(@font-size-base * (5.5/4)); // ~29px
+@font-size-h4:              floor(@font-size-base * (5/4)); // ~28px
+@font-size-h5:              ceil(@font-size-base * (4.5/4)); // ~24px
+@font-size-h6:              floor(@font-size-base * (4/4) ); // ~62px
+
+@line-height-base:          1.72222; // 31/18
+@line-height-computed:      floor(@font-size-base * @line-height-base); // ~31px
+
+//@headings-font-family:      "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@headings-font-weight:      600;
+@headings-line-height:      1.1;
+@headings-color:            @brand-primary;
+
+@grid-gutter-width:         15px;
+@fluid-grid-row-width:      percentage((@grid-columns/ @grid-columns));
+@fluid-grid-column-width:   percentage((1 / @grid-columns));
+@fluid-grid-gutter-width:   (@grid-gutter-width );
+
+//Navbar
+@navbar-height-small:       40px;
+@navbar-default-bg:         #F5F7F7;
+@navbar-default-form-border: transparent;
+
+// Navbar links
+@navbar-default-link-color:           @concrete;
+@navbar-default-link-hover-color:     @link-hover-color;
+@navbar-default-link-hover-bg:        transparent;
+@navbar-default-link-active-color:    @link-color;
+@navbar-default-link-active-bg:       transparent;
+@navbar-default-link-disabled-color:  #ccc;
+@navbar-default-link-disabled-bg:     transparent;
+
+//== Thumbnails
+//
+//##
+//** Thumbnail background color
+@thumbnail-bg:                lighten(@clouds, 3%);

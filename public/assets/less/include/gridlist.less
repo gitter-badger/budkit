@@ -1,0 +1,163 @@
+// Grid-list
+// --------------------------------------------------
+.mgridfluid(@fluid-grid-column-width, @fluid-grid-gutter-width) {
+
+  .mgcolX (@index) when (@index > 0) {
+    .mgcol@{index} {
+      .mgcol(@index);
+    }
+    .mgcolX(@index - 1);
+  }
+  .mgcolX (0) {
+  }
+
+  .mgoffsetX (@index) when (@index > 0) {
+    .mgoffset@{index} {
+      .mgoffset(@index);
+    }
+    .mgoffset@{index}:first-child {
+      .mgoffsetFirstChild(@index);
+    }
+    .mgoffsetX(@index - 1);
+  }
+  .mgoffsetX (0) {
+  }
+
+  .mgoffset (@columns) {
+    margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) + (@fluid-grid-gutter-width*2);
+    *margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%) + (@fluid-grid-gutter-width*2) - (.5 / @fluid-grid-row-width * 100 * 1%);
+  }
+
+  .mgoffsetFirstChild (@columns) {
+    margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) + (@fluid-grid-gutter-width);
+    *margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%) + @fluid-grid-gutter-width - (.5 / @fluid-grid-row-width * 100 * 1%);
+  }
+
+  .mgcol(@columns) {
+    width: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1));
+    *width: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%);
+    .clearfix();
+  }
+
+  .mgrow-fluid {
+    width: 100%;
+    .clearfix();
+    [class*="mgcol"] {
+      //.input-block-level();
+      float: left;
+      margin-left: @fluid-grid-gutter-width;
+      *margin-left: @fluid-grid-gutter-width - (.5 / @fluid-grid-row-width * 100 * 1%);
+    }
+    [class*="mgcol"]:first-child {
+      margin-left: 0;
+    }
+    .mgcolX (@grid-columns);
+    .mgoffsetX (@grid-columns);
+  }
+}
+
+.nav-mediagrid > li > a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: @gray-dark;
+}
+
+// Active state
+.nav-mediagrid > .active > a,
+.nav-mediagrid > .active > a:hover,
+.nav-mediagrid > .active > a:focus {
+  color: white;
+  background-color: @gray-dark;
+}
+
+.media-grid, .media-list {
+  padding: 0px;
+  margin: 0px;
+  .clearfix();
+  li {
+    .clearfix();
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.media-grid {
+  .feature {
+    height: 230px;
+    .box-sizing(border-box);
+    position: relative;
+    .caption {
+      height: 30px;
+      font-size: 10px;
+      text-align: center;
+      line-height: 18px;
+      padding-top: 10px;
+      color: @concrete;
+    }
+  }
+  &.compensate-margins {
+    margin-right: -@fluid-grid-gutter-width;
+    //margin-bottom: -@fluid-grid-gutter-width*0.5;
+  }
+  li {
+    display: inline-block;
+    float: left;
+    margin: 0 @fluid-grid-gutter-width  @fluid-grid-gutter-width 0;
+    .grid-hide {
+      display: none !important
+    }
+    &.list-header {
+      display: none
+    }
+    .clearfix();
+    .mgitem {
+      max-width: 350px;
+    }
+  }
+  &.media-grid-2 {
+    .mgrow-fluid {
+      width: 50%;
+      margin-right: 0;
+      .box-sizing(border-box);
+      padding-right: @grid-gutter-width;
+      //*width: (@fluid-grid-column-width * 6) + (@fluid-grid-gutter-width * (6 - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%);
+    }
+  }
+}
+
+.media-list {
+  .mgridfluid(@fluid-grid-column-width, @fluid-grid-gutter-width);
+  li {
+    margin-bottom: @grid-gutter-width;
+    .box-sizing(border-box);
+    line-height: @line-height-base;
+    text-align: left;
+    vertical-align: top;
+    //border-bottom: 1px solid @table-border-color;
+    .list-hide {
+      display: none !important
+    }
+    &.list-header {
+      padding: 5px;
+      [class*="mgcol"] {
+        min-height: @line-height-base
+      }
+    }
+    .feature {
+      .media-file {
+        border: none;
+        width: auto;
+        height: auto;
+        .media-type {
+          margin: 0 auto;
+        }
+      }
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

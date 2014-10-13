@@ -1,0 +1,51 @@
+.editor {
+  .page-header {
+    position: relative;
+    h1[contenteditable=true] {
+      margin-right: 60px
+    }
+    .collaborators {
+      position: absolute;
+      right: 0;
+      padding: 0;
+      top: -10px;
+      .opacity(0.3);
+      //Display only one collaborator until hover
+      .dp {
+        // position: absolute;
+        cursor: pointer;
+        display: none;
+        margin-right: -30px;
+        background: white;
+        &:last-child {
+          margin-right: 0px;
+        }
+        &:nth-child(3){
+          margin-right: 0px;
+        }
+        &:nth-child(-n+3) {
+          display: inline-block
+        }
+      }
+      &:hover {
+        .opacity(1);
+        background: #FFF;
+        .dp {
+          position: relative;
+          margin: 0 -1px 1px;
+          display: inline-block;
+          border-width: 5px;
+          &:last-child {
+            margin-right: 0px
+          }
+        }
+      }
+    }
+  }
+  .saving {
+    font-weight: normal;
+    .fa{
+      margin-right: 5px;
+    }
+  }
+}

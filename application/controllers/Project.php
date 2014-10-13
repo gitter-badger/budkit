@@ -1,8 +1,9 @@
 <?php
 
+use Budkit\Routing\Controller;
 use Budkit\Dependency\Container as Application;
 
-class Protocol extends Controller {
+class Project extends Controller {
 
     public function __construct(Application $application) {
         parent::__construct($application);
@@ -11,7 +12,7 @@ class Protocol extends Controller {
     public function index($format = 'html') {
         //echo "Browsing in {$format} format";
 
-        $this->display('Views\Index');
+        $this->view->setLayout("project/index");
     }
 
 

@@ -1,0 +1,146 @@
+html, body {
+  height: 100%;
+}
+
+body{
+ // background-image: url("../images/noisy_grid.png");
+  background-repeat: repeat;
+  color: @text-color;
+
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 0px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, .h1 {
+  //font-weight: 400 !important;
+  color: @brand-primary
+}
+[contenteditable="true"]{ outline: 0}
+
+h2, .h2, h3, .h3,h4, .h4 ,h5, .h5 ,h6, .h6  {
+  margin-top: 0px;
+  font-weight: 400;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.thumbnail, .img-thumbnail {
+  border: 0 solid transparent;
+}
+
+.well{  background: lighten(@clouds, 5%); border-color: @clouds }
+
+.table > thead > tr > th{ border-bottom-width: 1px }
+.table > tbody > tr:first-child > td{border-top: none}
+
+.panel, .panel-heading, .well, .list-group-item, .list-group-item:first-child,
+.list-group-item:last-child, .alert, .label, .badge {
+  border-radius: 0
+}
+
+.list-group-item-text {
+  line-height: @line-height-base
+}
+
+.radio, .checkbox {
+  display: inline-block;
+  padding-left: 20px;
+  background: #fff;
+  border-radius: 50%;
+  min-height: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 1px;
+  .first-icon{
+    color: darken( @clouds, 10%);
+  }
+  &.checked {
+    color: darken( @clouds, 5%);
+    .opacity(1);
+    .second-icon {
+      color: darken( @clouds, 5%);
+      .transition(color .25s linear);
+    }
+  }
+  &:hover, &.checked:hover{
+    color: darken( @clouds, 10%);
+    .second-icon{
+      color:darken( @clouds, 10%);
+    }
+  }
+}
+
+.page-header {
+  padding-bottom: 10px;
+  margin: 20px 0 24px;
+  border-bottom: 2px solid lighten( @clouds, 3%);
+  p {
+    margin-bottom: 24px;
+  }
+}
+
+.alert {
+  border: 1px solid transparent;
+}
+
+.container {
+  width: @container-width !important;
+  margin: 0;
+}
+
+.navbar{
+  margin-bottom: @grid-gutter-width;
+}
+
+.navbar-fixed-top {
+  margin-left: 200px;
+  width: @container-width;
+}
+
+.navbar-nav > li > a {
+  font-size: @font-size-base;
+}
+
+.navbar-form {
+  padding-left: 10px;
+  padding-right: 10px;
+  .form-control {
+    border-radius: @border-radius-small;
+    font-size: @font-size-base;
+    background: @input-bg;
+    width: 100%;
+      &+ .input-icon {
+        position: absolute;
+        top: 4px;
+        right: 2px;
+        line-height: @navbar-input-line-height;
+        vertical-align: baseline;
+        font-size: @font-size-base;
+        color: desaturate(lighten(@brand-primary, 45%), 15%);
+        background-color: @inverse;
+        padding: 5px 10px;
+        border-radius: @input-border-radius;
+      }
+    &:focus {
+      border-color:transparent !important;
+      &+ .input-icon {
+        color: @brand-primary;
+      }
+    }
+  }
+  .form-group + .btn {
+    border-radius: @border-radius-small;
+  }
+  .input-group-btn {
+    width: 0;
+    .btn {
+      font-size: @font-size-base;
+    }
+  }
+}

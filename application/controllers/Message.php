@@ -2,7 +2,7 @@
 
 use Budkit\Dependency\Container as Application;
 
-class Protocol extends Controller {
+class Message extends Controller {
 
     public function __construct(Application $application) {
         parent::__construct($application);

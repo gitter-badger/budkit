@@ -1,8 +1,9 @@
 <?php
 
+use Budkit\Routing\Controller;
 use Budkit\Dependency\Container as Application;
 
-class Protocol extends Controller {
+class Stream extends Controller {
 
     public function __construct(Application $application) {
         parent::__construct($application);
