@@ -12,6 +12,7 @@ class Home extends Controller{
 		
 		//throw new Exception("Something broke!");
 		//var_dump($this->response);
+        //var_dump($this->application->observer);
 		//echo "what about this";
 		
 		$this->view->setData("name", "Livingstone");
