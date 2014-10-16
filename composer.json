@@ -9,12 +9,14 @@
     "minimum-stability": "dev",
     "repositories": [
         {"type": "git", "url": "https://github.com/budkit/budkit-framework.git"},
-        {"type": "git", "url": "https://github.com/livingstonef/budkit-calendar.git"}
+        {"type": "git", "url": "https://github.com/livingstonef/budkit-calendar.git"},
+        {"type": "git", "url": "https://github.com/livingstonef/budkit-pm.git"}
     ],
     "require": {
         "php": ">=5.3.2",
         "budkit/framework": "*",
         "filp/whoops": "1.*",
-        "livingstonef/calendar": "*"
+        "livingstonef/calendar": "*",
+        "livingstonef/project": "*"
     }
 }
