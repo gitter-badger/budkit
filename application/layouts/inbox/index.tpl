@@ -4,8 +4,15 @@
     <!--Append-->
     <!--This path attribute needs some kind of validation to save against XSS -->
     <tpl:append path="//tpl:block[@name='content']">
-        <div class="page-header">
-            <h1>Inbox</h1>
+        <div class="page-header bottom-border">
+            <h1>
+                <span>Inbox</span>
+                <div class="btn-group pull-right">
+                    <a href="#" class="btn btn-default active"><i class="fui-list-thumbnailed" /></a>
+                    <a href="#" class="btn btn-default"><i class="fui-list-columned" /></a>
+                </div>
+            </h1>
+            <!--
             <div class="navbar navbar-tabs navbar-sm">
                 <div class="navbar-holder">
                     <ul class="nav navbar-nav">
@@ -13,11 +20,8 @@
                         <li><a href="discussions.html">Conversations <span class="label-danger label">1</span></a></li>
                         <li><a href="documents.html">Task list <span class="label-danger label">100+</span></a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-                    </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
         <tpl:import name="stream" />
     </tpl:append>

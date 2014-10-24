@@ -2,9 +2,10 @@
 
 namespace Views;
 
-class Index extends \View{
+use Budkit\View\Display;
+
+class Index extends Display{
 	
 	protected $layout = 'index';
-	
-	
+
 }
