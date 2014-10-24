@@ -1,45 +1,45 @@
 // Grid-list
 // --------------------------------------------------
-.mgridfluid(@fluid-grid-column-width, @fluid-grid-gutter-width) {
+.media-grid-fluid(@fluid-grid-column-width, @fluid-grid-gutter-width) {
 
-  .mgcolX (@index) when (@index > 0) {
-    .mgcol@{index} {
-      .mgcol(@index);
+  .media-grid-colX (@index) when (@index > 0) {
+    .media-grid-col@{index} {
+      .media-grid-col(@index);
     }
-    .mgcolX(@index - 1);
+    .media-grid-colX(@index - 1);
   }
-  .mgcolX (0) {
-  }
-
-  .mgoffsetX (@index) when (@index > 0) {
-    .mgoffset@{index} {
-      .mgoffset(@index);
-    }
-    .mgoffset@{index}:first-child {
-      .mgoffsetFirstChild(@index);
-    }
-    .mgoffsetX(@index - 1);
-  }
-  .mgoffsetX (0) {
+  .media-grid-colX (0) {
   }
 
-  .mgoffset (@columns) {
+  .media-grid-offsetX (@index) when (@index > 0) {
+    .media-grid-offset@{index} {
+      .media-grid-offset(@index);
+    }
+    .media-grid-offset@{index}:first-child {
+      .media-grid-offsetFirstChild(@index);
+    }
+    .media-grid-offsetX(@index - 1);
+  }
+  .media-grid-offsetX (0) {
+  }
+
+  .media-grid-offset (@columns) {
     margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) + (@fluid-grid-gutter-width*2);
     *margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%) + (@fluid-grid-gutter-width*2) - (.5 / @fluid-grid-row-width * 100 * 1%);
   }
 
-  .mgoffsetFirstChild (@columns) {
+  .media-grid-offsetFirstChild (@columns) {
     margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) + (@fluid-grid-gutter-width);
     *margin-left: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%) + @fluid-grid-gutter-width - (.5 / @fluid-grid-row-width * 100 * 1%);
   }
 
-  .mgcol(@columns) {
+  .media-grid-col(@columns) {
     width: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1));
     *width: (@fluid-grid-column-width * @columns) + (@fluid-grid-gutter-width * (@columns - 1)) - (.5 / @fluid-grid-row-width * 100 * 1%);
     .clearfix();
   }
 
-  .mgrow-fluid {
+  .media-grid-row-fluid {
     width: 100%;
     .clearfix();
     [class*="mgcol"] {
@@ -51,12 +51,12 @@
     [class*="mgcol"]:first-child {
       margin-left: 0;
     }
-    .mgcolX (@grid-columns);
-    .mgoffsetX (@grid-columns);
+    .media-grid-colX (@grid-columns);
+    .media-grid-offsetX (@grid-columns);
   }
 }
 
-.nav-mediagrid > li > a {
+.nav-media-grid > li > a {
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 2px;
@@ -65,9 +65,9 @@
 }
 
 // Active state
-.nav-mediagrid > .active > a,
-.nav-mediagrid > .active > a:hover,
-.nav-mediagrid > .active > a:focus {
+.nav-media-grid > .active > a,
+.nav-media-grid > .active > a:hover,
+.nav-media-grid > .active > a:focus {
   color: white;
   background-color: @gray-dark;
 }
@@ -113,12 +113,12 @@
       display: none
     }
     .clearfix();
-    .mgitem {
+    .media-grid-item {
       max-width: 350px;
     }
   }
   &.media-grid-2 {
-    .mgrow-fluid {
+    .media-grid-row-fluid {
       width: 50%;
       margin-right: 0;
       .box-sizing(border-box);
@@ -129,7 +129,7 @@
 }
 
 .media-list {
-  .mgridfluid(@fluid-grid-column-width, @fluid-grid-gutter-width);
+  .media-grid-fluid(@fluid-grid-column-width, @fluid-grid-gutter-width);
   li {
     margin-bottom: @grid-gutter-width;
     .box-sizing(border-box);

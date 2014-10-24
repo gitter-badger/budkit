@@ -275,6 +275,8 @@
 @import "sidebar";
 @import "stream";
 @import "editor";
+@import "fontawesome/variables";
+@import "person";
 
 /**Display Pictures**/
 .dp {
@@ -283,10 +285,32 @@
   //border-color: lighten(@clouds, 3%);
   transition: all 0.2s ease-in-out;
   border-radius: 50%;
+  background: white;
   &:hover {
     border-width: 1px;
     //.rotate( 360deg );
     //-webkit-font-smoothing:antialiased;
+  }
+  &.no-border{
+    border-width: 0px;
+  }
+  &.no-hover{
+    &:hover{
+      border-width: inherit;
+    }
+  }
+  //Status;
+  &.status{
+    border: 2px solid @wet-asphalt;
+    &-online{
+      border: 2px solid @brand-success;
+    }
+    &-offline{
+      border: 2px solid @brand-danger;
+    }
+    &-busy{
+      border: 2px solid @orange;
+    }
   }
 }
 
@@ -399,7 +423,11 @@
   .pricing {
     text-align: center;
   }
+  &.footer{
+    padding: 2*@grid-gutter-width 0;
+  }
 }
+
 
 .testimonial {
   margin: 0 50px 50px;
@@ -477,7 +505,7 @@
   }
 
   .navbar-form {
-    .navbar-vertical-align(@input-height-small; @navbar-height-small);
+    .navbar-vertical-align(@input-height-sm; @navbar-height-small);
   }
 
   .navbar-text {
@@ -489,8 +517,8 @@
     margin-bottom: ((@navbar-height-small - @input-height-base) / 2);
 
     &.btn-sm {
-      margin-top: ((@navbar-height-small - @input-height-small) / 2);
-      margin-bottom: ((@navbar-height-small - @input-height-small) / 2);
+      margin-top: ((@navbar-height-small - @input-height-sm) / 2);
+      margin-bottom: ((@navbar-height-small - @input-height-sm) / 2);
     }
     &.btn-xs {
       margin-top: ((@navbar-height-small - 25px) / 2);
@@ -499,11 +527,17 @@
   }
 }
 
+.navbar-holder-center{
+  display: table;
+  margin: 0 auto;
+}
+
 .navbar-tabs {
   //text-transform: uppercase;
   margin-bottom: 0px;
   border-bottom: 2px solid lighten(@clouds, 3%);;
-  margin: 29px -15px -12px;
+  margin-left: -@grid-gutter-width;
+  margin-right: -@grid-gutter-width;
   padding: 0 15px;
   .navbar-nav {
     > li {
@@ -517,7 +551,7 @@
         margin-right: 5px;
       }
       &:first-child {
-        margin-left: -10px;
+        margin-left: -15px;
       }
       & > a {
         font-size: 13px;

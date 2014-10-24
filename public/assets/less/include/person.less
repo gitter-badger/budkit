@@ -1,0 +1,22 @@
+.person{
+	border-radius: 50%;
+	position:relative;
+	display: inline-block;
+	.person-photo{
+		border-radius: 50%;
+	}
+	.person-status{
+		position: absolute;
+		bottom: 2px;
+		right: -2px;
+		width: 10px; height: 10px;
+		background-color: transparent;
+		border-radius: 50%;
+		&.online{
+			background-color: @turquoise;
+		}
+		&.offline{
+			background-color: @alizarin;
+		}
+	}
+}

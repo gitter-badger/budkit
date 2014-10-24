@@ -37,7 +37,7 @@
   display: block;
 }
 .stream-line{
-  width: 2px;
+  width: 5px;
   left: 38px;
   top: 15px;
   bottom: 0px;
@@ -57,10 +57,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  .dp{
-    border-style: solid;
-    border-color: lighten(@clouds, 3%);
-  }
   li {
     position: relative;
     .more {
@@ -121,7 +117,7 @@
       }
     }
     .actions {
-      margin-top: 10px;
+      //margin-top: 10px;
     }
 
     .featured-img, .featured-media, .cover-img, .extra, .extra-plus {
@@ -213,14 +209,16 @@
       }
     }
     .subject {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-size: 15px;
-      display: inline-block;
+	  position: relative;
+      //display: inline-block;
       &.heading {
         //line-height: 50px;
-        font-weight: 700 ;
+        font-weight: 400 ;
       }
-      .subject, .target{margin-right: 5px; color: @brand-primary }
+	  .pins{ position: absolute; right: 0; }
+      .subject, .target{margin-right: 5px;  a{ font-weight: normal !important } }
       .action{ color: @silver;  font-weight: normal !important}
       .time{ font-weight: 400; font-size: @font-size-base;  color: @silver; margin-left: 20px; }
       .privacy{margin-left: 20px; color: @silver }
@@ -233,13 +231,14 @@
         position: relative;
         margin-bottom: 10px;
         .opacity(0.5);
-        .dp{
+        .person{
           margin: 0 -30px 1px 0 ;
           max-width: 50px;
           max-height: 50px;
           cursor: pointer;
           display: none;
           background: white;
+		  .person-status{ display: none; }
           &:last-child {
             margin-right: 0px;
           }
@@ -250,11 +249,11 @@
       &:hover {
         .opacity(1);
         background: #FFF;
-        .dp {
+        .person {
           position: relative;
           margin: 0 -5px 1px 0 ;
           display: inline-block;
-          //border-width: 5px;
+          .person-status{ display: block; }
           &:last-child {
             margin-right: 0px
           }
@@ -292,7 +291,7 @@
           .featured-img, .featured-media, .cover-img {
             & ~ .extra, & ~ .extra-plus {
               top: 50px+@grid-gutter-width * (4/3);
-              & ~ .extra-plus {
+              & ~ .extra, & ~ .extra-plus { //max of up to two tags;
                 top: 50px+@grid-gutter-width * (8/3);
               }
             }
@@ -445,7 +444,6 @@
 
 
 //Specialised Streams
-
 .task-list{
   li {
     .link,.link.has-featured-img{
@@ -463,4 +461,29 @@
       }
     }
   }
+}
+
+.stream-list{
+	&.collapsed{	
+		.stream-line, .stream-title{ display: none; }
+		.stream{
+	li {
+		border-bottom: 1px solid #f7f7f7;
+		.person{
+			img.person-photo{ width: 32px; height: 32px}
+		}
+		.subject{ 
+			line-height: 30px; margin-bottom:0px;
+			.pins{ top: 10px; }
+		}
+	    .body,.actions,.extra, .extra-plus{
+			display: none;
+		}
+	    &:last-child {
+	      border-bottom: none
+	    }
+		.item,.link{ padding-left: 70px !important; min-height: 32px!important}
+	}
+}
+	}
 }

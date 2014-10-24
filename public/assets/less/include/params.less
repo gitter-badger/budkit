@@ -10,10 +10,13 @@
 @btn-hover-bg:               mix(@btn-default-bg, white, 80%);
 @btn-active-bg:              mix(@btn-default-bg, black, 85%);
 
+//brand colors
+
+@brand-primary:         @green-sea;
 
 //** Global textual link color.
-@link-color:            @green-sea;
-@link-hover-color:      @turquoise ;
+//@link-color:            @green-sea;
+//@link-hover-color:      @turquoise ;
 
 //== Scaffolding
 //
@@ -23,7 +26,7 @@
 @sidebar-bg:                @midnight-blue;
 @text-color:                #6C7C97;
 @container-width:           900px;
-@sidebar-width:             200px;
+@sidebar-width:             225px;
 
 @hero-padding:              100px;
 @hero-color:                white;
@@ -46,7 +49,7 @@
 //
 //## Font, line-height for body text, headings, and more.
 @font-family-base:          "Noto Sans","Open sans", Helvetica, Arial, sans-serif;
-@font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
+//@font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
 @font-size-base:            14px;
 @font-size-small:           12px;
 
@@ -63,7 +66,7 @@
 //@headings-font-family:      "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @headings-font-weight:      600;
 @headings-line-height:      1.1;
-@headings-color:            @brand-primary;
+@headings-color:            @midnight-blue;
 
 @grid-gutter-width:         15px;
 @fluid-grid-row-width:      percentage((@grid-columns/ @grid-columns));
@@ -83,6 +86,15 @@
 @navbar-default-link-active-bg:       transparent;
 @navbar-default-link-disabled-color:  #ccc;
 @navbar-default-link-disabled-bg:     transparent;
+
+// Inverted navbar links
+@navbar-inverse-link-color:           white;
+@navbar-inverse-link-hover-color:     white;
+@navbar-inverse-link-hover-bg:        transparent;
+@navbar-inverse-link-active-color:    @navbar-inverse-link-color;
+@navbar-inverse-link-active-bg:       @brand-secondary;
+@navbar-inverse-link-disabled-color:  #444;
+@navbar-inverse-link-disabled-bg:     transparent;
 
 //== Thumbnails
 //

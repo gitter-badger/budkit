@@ -11,13 +11,10 @@ body{
 
 h1, .h1, h2, .h2, h3, .h3 {
   margin-top: 0px;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, .h1 {
-  //font-weight: 400 !important;
-  color: @brand-primary
-}
 [contenteditable="true"]{ outline: 0}
 
 h2, .h2, h3, .h3,h4, .h4 ,h5, .h5 ,h6, .h6  {
@@ -77,22 +74,26 @@ hr {
 }
 
 .page-header {
-  padding-bottom: 10px;
-  margin: 20px 0 24px;
-  border-bottom: 2px solid lighten( @clouds, 3%);
+  padding: @grid-gutter-width 0;
+  margin: 0 0 1px;
+  border: none;
+  &.bottom-border {
+    border-bottom: 2px solid lighten(@clouds, 3%);
+  }
   p {
     margin-bottom: 24px;
   }
+  //.h1, h1{ margin: 2*@grid-gutter-width 0 2.1*@grid-gutter-width }
 }
 
 .alert {
   border: 1px solid transparent;
 }
 
-.container {
-  width: @container-width !important;
-  margin: 0;
-}
+//.container {
+//  width: @container-width !important;
+//  margin: 0;
+//}
 
 .navbar{
   margin-bottom: @grid-gutter-width;
@@ -107,9 +108,16 @@ hr {
   font-size: @font-size-base;
 }
 
+.navbar-nav.navbar-right:last-child{
+  margin-right: 0px;
+}
+
 .navbar-form {
   padding-left: 10px;
   padding-right: 10px;
+  .input-group{
+    width: 100%;
+  }
   .form-control {
     border-radius: @border-radius-small;
     font-size: @font-size-base;
@@ -123,7 +131,7 @@ hr {
         vertical-align: baseline;
         font-size: @font-size-base;
         color: desaturate(lighten(@brand-primary, 45%), 15%);
-        background-color: @inverse;
+        background-color: transparent !important;
         padding: 5px 10px;
         border-radius: @input-border-radius;
       }
@@ -141,6 +149,19 @@ hr {
     width: 0;
     .btn {
       font-size: @font-size-base;
+    }
+  }
+}
+
+.navbar-inverse{
+  .navbar-form{
+    .form-control{
+      &:focus{
+        color: white;
+        &+ .input-icon {
+          color: white !important;
+        }
+      }
     }
   }
 }
